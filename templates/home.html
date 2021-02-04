@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>WELCOME TO MY FIRST PROJECT IN DJANGO</h1>
+<p style="color:red">This project contains two pages,one is signup and one is login page.<br>
+    After Login,you will able to see "HELLO your Name" as in place of Singup and in place of Login you will able to see the logout button!<br>
+    so,check this out! I mean watch it out! :-)<br>
+    In this project,i used postgresql database.Hope you like it!<br>
+    </p>
+<h2>Hello {{name}}</h2>
+<h3>I,Rahul Srivastava Welcome you!</h3>
+<h4>Click on the link where you want to go.</h4>
+<ul>
+    {% if user.is_authenticated %}
+    <li>Hello, {{user.first_name}}</li>
+    <li><a href="accounts/logout">Logout</a></li>
+    {% else %}
+    <li><a href="accounts/register">SIGNUP PAGE</a></li>
+    <br>
+    <li><a href="accounts/login">LOGIN PAGE</a></li>
+    {% endif %}
+</ul>
+
+{% endblock %}
